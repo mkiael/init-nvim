@@ -12,10 +12,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
-return require('packer').startup {
+require('packer').startup {
     function()
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
+
+        use 'morhetz/gruvbox'
 
         use 'mhinz/vim-sayonara'
 
@@ -65,3 +67,6 @@ return require('packer').startup {
         compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
     }
 }
+
+-- Load gruvbox color theme
+vim.cmd [[colorscheme gruvbox]]
