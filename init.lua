@@ -21,6 +21,8 @@ require('packer').startup {
 
         use 'mhinz/vim-sayonara'
 
+        use 'arkav/lualine-lsp-progress'
+
         use {
             'hoob3rt/lualine.nvim',
             requires = {'kyazdani42/nvim-web-devicons', opt = true},
