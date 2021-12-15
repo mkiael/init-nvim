@@ -32,3 +32,5 @@ map('n', '<C-h>', '<C-w><C-h>', {noremap = true})
 map('n', '<A-n>', ':set paste<CR>m`o<Esc>``:set nopaste<CR>', {noremap = true})
 map('n', '<A-m>', ':set paste<CR>m`O<Esc>``:set nopaste<CR>', {noremap = true})
 
+-- Clear search hightlight
+map('n', '<leader>hs', ':nohlsearch<CR>', {noremap = true, silent = true})
