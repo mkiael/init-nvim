@@ -69,6 +69,11 @@ require('packer').startup {
             config = [[ require('config/cmp') ]]
         }
 
+        use {
+           'sakhnik/nvim-gdb',
+            config = [[ require('config/gdb') ]]
+        }
+
     end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
