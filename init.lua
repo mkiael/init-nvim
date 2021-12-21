@@ -23,10 +23,16 @@ require('packer').startup {
 
         use 'arkav/lualine-lsp-progress'
 
+        use 'kyazdani42/nvim-web-devicons'
+
         use {
             'hoob3rt/lualine.nvim',
-            requires = {'kyazdani42/nvim-web-devicons', opt = true},
             config = [[ require('config/lualine') ]]
+        }
+
+        use {
+            'kyazdani42/nvim-tree.lua',
+            config = [[ require('config/tree') ]]
         }
 
         use {
