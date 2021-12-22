@@ -74,6 +74,11 @@ require('packer').startup {
             config = [[ require('config/gdb') ]]
         }
 
+        use {
+           'tveskag/nvim-blame-line',
+           config = [[ require('config/blame-line') ]]
+        }
+
     end,
     config = {
         -- Move to lua dir so impatient.nvim can cache it
