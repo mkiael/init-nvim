@@ -1,5 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
+vim.g.mapleader = ','
+
 -- Exit insert mode with jj
 map('i', 'jj', '<Esc>', {noremap = true})
 
