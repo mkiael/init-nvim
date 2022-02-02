@@ -1,3 +1,6 @@
+vim.cmd('command! LspActiveClients :lua print(vim.inspect(vim.lsp.get_active_clients()))')
+vim.cmd('command! LspRestart :lua vim.lsp.stop_client(vim.lsp.get_active_clients())')
+
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
