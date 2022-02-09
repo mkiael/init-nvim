@@ -26,6 +26,11 @@ require('packer').startup {
         use 'kyazdani42/nvim-web-devicons'
 
         use {
+           'ray-x/lsp_signature.nvim',
+            config = [[ require('config/signature') ]]
+        }
+
+        use {
             'hoob3rt/lualine.nvim',
             config = [[ require('config/lualine') ]]
         }
