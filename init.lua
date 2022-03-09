@@ -17,7 +17,10 @@ require('packer').startup {
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
 
-        use 'morhetz/gruvbox'
+        use {
+           'morhetz/gruvbox',
+           config = [[ require('config/gruvbox') ]]
+        }
 
         use 'mhinz/vim-sayonara'
 
@@ -90,6 +93,3 @@ require('packer').startup {
         compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
     }
 }
-
--- Load gruvbox color theme
-vim.cmd [[colorscheme gruvbox]]
