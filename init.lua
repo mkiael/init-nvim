@@ -55,13 +55,11 @@ require('packer').startup {
             config = [[ require('config/treesitter') ]]
         }
 
+        use { 'junegunn/fzf', run = './install --bin', }
+
         use {
-            'nvim-telescope/telescope.nvim',
-            requires = {
-                {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'},
-                {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
-            },
-            config = [[ require('config/telescope') ]]
+            'ibhagwan/fzf-lua',
+            config = [[ require('config/fzf-lua') ]]
         }
 
         use {

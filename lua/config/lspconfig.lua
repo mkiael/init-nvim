@@ -17,10 +17,10 @@ local on_attach = function(client, bufnr)
                    {silent = true, noremap = true})
     buf_set_keymap('n', '<leader>fh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', "<leader>fi",
-                   "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>",
+                   "<cmd>lua require('fzf-lua').lsp_implementations()<CR>",
                    {silent = true, noremap = true})
     buf_set_keymap('n', "<leader>fr",
-                   "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
+                   "<cmd>lua require('fzf-lua').lsp_references()<CR>",
                    {silent = true, noremap = true})
     buf_set_keymap('n', '<leader>fx', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)
