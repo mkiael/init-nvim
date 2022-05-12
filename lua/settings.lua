@@ -35,3 +35,7 @@ opt.hlsearch = true
 opt.incsearch = true
 opt.showmode = true
 opt.completeopt = 'menu,menuone,noselect'
+
+experimental = {
+   native_menu = false,
+}

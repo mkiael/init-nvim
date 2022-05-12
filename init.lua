@@ -72,7 +72,7 @@ require('packer').startup {
         use {
             'hrsh7th/nvim-cmp',
             requires = {
-                'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer'
+                'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-cmdline'
             },
             config = [[ require('config/cmp') ]]
         }
@@ -86,6 +86,8 @@ require('packer').startup {
            'tveskag/nvim-blame-line',
            config = [[ require('config/blame-line') ]]
         }
+
+        use 'tpope/vim-fugitive'
 
     end,
     config = {
