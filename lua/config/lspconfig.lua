@@ -13,7 +13,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.declaration()<CR>',
                    opts)
     buf_set_keymap('n', "<leader>fd",
-                   "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>",
+                   "<cmd>lua require('fzf-lua').lsp_definitions()<CR>",
                    {silent = true, noremap = true})
     buf_set_keymap('n', '<leader>fh', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', "<leader>fi",
@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
                    opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
                    opts)
-    buf_set_keymap('n', 'g=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', 'g=', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
     buf_set_keymap('x', 'g=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
                    opts)
 
