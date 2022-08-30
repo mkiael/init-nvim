@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
                    opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>',
                    opts)
-    buf_set_keymap('n', 'g=', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
+    buf_set_keymap('n', 'g=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     buf_set_keymap('x', 'g=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
                    opts)
 
