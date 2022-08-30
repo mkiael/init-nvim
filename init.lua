@@ -75,6 +75,13 @@ require('packer').startup {
             config = [[ require('config/cmp') ]]
         }
 
+        use 'saadparwaiz1/cmp_luasnip'
+
+        use {
+            'L3MON4D3/LuaSnip',
+            config = [[ require('config/luasnip') ]]
+        }
+
         use {
            'sakhnik/nvim-gdb',
             config = [[ require('config/gdb') ]]
