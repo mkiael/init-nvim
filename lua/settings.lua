@@ -35,6 +35,8 @@ opt.hlsearch = true
 opt.incsearch = true
 opt.showmode = true
 opt.completeopt = 'menu,menuone,noselect'
+opt.ch = 0
+opt.laststatus = 3
 
 experimental = {
    native_menu = false,
