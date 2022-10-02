@@ -17,10 +17,7 @@ require('packer').startup {
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
 
-        use {
-           'morhetz/gruvbox',
-           config = [[ require('config/gruvbox') ]]
-        }
+        use 'folke/tokyonight.nvim'
 
         use 'mhinz/vim-sayonara'
 
@@ -100,3 +97,5 @@ require('packer').startup {
         compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
     }
 }
+
+vim.cmd[[colorscheme tokyonight-night]]
