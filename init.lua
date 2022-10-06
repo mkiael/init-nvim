@@ -95,6 +95,11 @@ require('packer').startup {
            config = [[ require('config/blame-line') ]]
         }
 
+        use {
+           'numToStr/Comment.nvim',
+           config = [[ require('config/comment') ]]
+        }
+
         use 'tpope/vim-fugitive'
 
     end,
