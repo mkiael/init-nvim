@@ -17,7 +17,7 @@ require('packer').startup {
         -- Packer can manage itself
         use 'wbthomason/packer.nvim'
 
-        use 'folke/tokyonight.nvim'
+        use "rebelot/kanagawa.nvim"
 
         use 'mhinz/vim-sayonara'
 
@@ -104,4 +104,4 @@ require('packer').startup {
     }
 }
 
-vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd[[colorscheme kanagawa]]
