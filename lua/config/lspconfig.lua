@@ -79,3 +79,7 @@ end
 if vim.fn.executable('pyright') > 0 then
     lsp.pyright.setup {on_attach = on_attach, capabilities = capabilities}
 end
+
+if vim.fn.executable('typescript-language-server') > 0 then
+   lsp.tsserver.setup {on_attach = on_attach, capabilities = capabilities}
+end
