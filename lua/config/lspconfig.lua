@@ -39,6 +39,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'g=', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
     buf_set_keymap('x', 'g=', '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
                    opts)
+    buf_set_keymap('n', '<leader>o', '<cmd>ClangdSwitchSourceHeader<CR>', opts)
 
 end
 
