@@ -84,3 +84,31 @@ end
 if vim.fn.executable('typescript-language-server') > 0 then
    lsp.tsserver.setup {on_attach = on_attach, capabilities = capabilities}
 end
+
+USER = vim.fn.expand('$USER')
+local sumneko_root_path = "/home/" .. USER .. "/.lsp/lualsp"
+local sumneko_binary = "/home/" .. USER .. "/.lsp/lualsp/bin/lua-language-server"
+
+if vim.fn.executable(sumneko_binary) > 0 then
+   lsp.sumneko_lua.setup {
+      cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+      settings = {
+         Lua = {
+            runtime = {
+               -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+               version = 'LuaJIT',
+               -- Setup your lua path
+               path = vim.split(package.path, ';')
+            },
+            diagnostics = {
+               -- Get the language server to recognize the `vim` global
+               globals = {'vim'}
+            },
+            workspace = {
+               -- Make the server aware of Neovim runtime files
+               library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+            }
+         }
+      }
+   }
+end
