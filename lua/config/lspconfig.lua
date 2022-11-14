@@ -59,22 +59,29 @@ if vim.fn.executable('clangd') > 0 then
     }
 end
 
-if vim.fn.executable('rls') > 0 then
-    lsp.rls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-            rust = {
-                unstable_features = true,
-                build_on_save = false,
-                all_features = true
+if vim.fn.executable('rust-analyzer') > 0 then
+    lsp.rust_analyzer.setup {
+       on_attach = on_attach,
+       capabilities = capabilities,
+       settings = {
+          ["rust-analyzer"] = {
+             imports = {
+                        granularity = {
+                           group = "module",
+                        },
+                        prefix = "self",
+                     },
+                     cargo = {
+                        buildScripts = {
+                           enable = true,
+                        },
+                     },
+                     procMacro = {
+                        enable = true
+                     },
+               }
             }
-        }
     }
-end
-
-if vim.fn.executable('rust_analyzer') > 0 then
-    lsp.rust_analyzer.setup {on_attach = on_attach, capabilities = capabilities}
 end
 
 if vim.fn.executable('pyright') > 0 then
