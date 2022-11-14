@@ -8,5 +8,7 @@ require'nvim-treesitter.configs'.setup {
             node_decremental = "-"
         }
     },
-    highlight = {enable = true}
+    highlight = {
+        enable = true
+    }
 }

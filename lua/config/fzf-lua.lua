@@ -22,7 +22,16 @@ require'fzf-lua'.setup {
         -- to manually draw the border characters around the preview
         -- window, can be set to 'false' to remove all borders or to
         -- 'none', 'single', 'double' or 'rounded' (default)
-        border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        border = {
+            '╭',
+            '─',
+            '╮',
+            '│',
+            '╯',
+            '─',
+            '╰',
+            '│'
+        },
         fullscreen = false, -- start fullscreen?
         hl = {
             normal = 'Normal', -- window normal color (fg+bg)
@@ -53,7 +62,10 @@ require'fzf-lua'.setup {
             -- border: in-border chars (see below)
             scrolloff = '-2', -- float scrollbar offset from right
             -- applies only when scrollbar = 'float'
-            scrollchars = {'█', ''}, -- scrollbar chars ({ <full>, <empty> }
+            scrollchars = {
+                '█',
+                ''
+            }, -- scrollbar chars ({ <full>, <empty> }
             -- applies only when scrollbar = 'border'
             delay = 100, -- delay(ms) displaying the preview
             -- prevents lag on fast scrolling
@@ -168,14 +180,20 @@ require'fzf-lua'.setup {
       ["gutter"]      = { "bg", "Normal" },
   }, ]]
     previewers = {
-        cat = {cmd = "cat", args = "--number"},
+        cat = {
+            cmd = "cat",
+            args = "--number"
+        },
         bat = {
             cmd = "bat",
             args = "--style=numbers,changes --color always",
             theme = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
             config = nil -- nil uses $BAT_CONFIG_PATH
         },
-        head = {cmd = "head", args = nil},
+        head = {
+            cmd = "head",
+            args = nil
+        },
         git_diff = {
             cmd_deleted = "git diff --color HEAD --",
             cmd_modified = "git diff --color HEAD",
@@ -196,8 +214,13 @@ require'fzf-lua'.setup {
             -- will do nothing if `viu` isn't executable
             extensions = {
                 -- neovim terminal only supports `viu` block output
-                ["png"] = {"viu", "-b"},
-                ["jpg"] = {"ueberzug"}
+                ["png"] = {
+                    "viu",
+                    "-b"
+                },
+                ["jpg"] = {
+                    "ueberzug"
+                }
             },
             -- if using `ueberzug` in the above extensions map
             -- set the default image scaler, possible scalers:
@@ -255,15 +278,23 @@ require'fzf-lua'.setup {
             color_icons = true,
             actions = {
                 -- actions inherit from 'actions.files' and merge
-                ["right"] = {actions.git_unstage, actions.resume},
-                ["left"] = {actions.git_stage, actions.resume}
+                ["right"] = {
+                    actions.git_unstage,
+                    actions.resume
+                },
+                ["left"] = {
+                    actions.git_stage,
+                    actions.resume
+                }
             }
         },
         commits = {
             prompt = 'Commits❯ ',
             cmd = "git log --pretty=oneline --abbrev-commit --color",
             preview = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
-            actions = {["default"] = actions.git_checkout}
+            actions = {
+                ["default"] = actions.git_checkout
+            }
         },
         bcommits = {
             prompt = 'BCommits❯ ',
@@ -280,16 +311,39 @@ require'fzf-lua'.setup {
             prompt = 'Branches❯ ',
             cmd = "git branch --all --color",
             preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
-            actions = {["default"] = actions.git_switch}
+            actions = {
+                ["default"] = actions.git_switch
+            }
         },
         icons = {
-            ["M"] = {icon = "M", color = "yellow"},
-            ["D"] = {icon = "D", color = "red"},
-            ["A"] = {icon = "A", color = "green"},
-            ["R"] = {icon = "R", color = "yellow"},
-            ["C"] = {icon = "C", color = "yellow"},
-            ["T"] = {icon = "T", color = "magenta"},
-            ["?"] = {icon = "?", color = "magenta"}
+            ["M"] = {
+                icon = "M",
+                color = "yellow"
+            },
+            ["D"] = {
+                icon = "D",
+                color = "red"
+            },
+            ["A"] = {
+                icon = "A",
+                color = "green"
+            },
+            ["R"] = {
+                icon = "R",
+                color = "yellow"
+            },
+            ["C"] = {
+                icon = "C",
+                color = "yellow"
+            },
+            ["T"] = {
+                icon = "T",
+                color = "magenta"
+            },
+            ["?"] = {
+                icon = "?",
+                color = "magenta"
+            }
             -- override git icons?
             -- ["M"]        = { icon = "★", color = "red" },
             -- ["D"]        = { icon = "✗", color = "red" },
@@ -327,7 +381,9 @@ require'fzf-lua'.setup {
         actions = {
             -- actions inherit from 'actions.files' and merge
             -- this action toggles between 'grep' and 'live_grep'
-            ["ctrl-g"] = {actions.grep_lgrep}
+            ["ctrl-g"] = {
+                actions.grep_lgrep
+            }
         },
         no_header = false, -- hide grep|cwd header?
         no_header_i = false -- hide interactive header?
@@ -336,7 +392,12 @@ require'fzf-lua'.setup {
         prompt = 'Args❯ ',
         files_only = true,
         -- actions inherit from 'actions.files' and merge
-        actions = {["ctrl-x"] = {actions.arg_del, actions.resume}}
+        actions = {
+            ["ctrl-x"] = {
+                actions.arg_del,
+                actions.resume
+            }
+        }
     },
     oldfiles = {
         prompt = 'History❯ ',
@@ -355,7 +416,10 @@ require'fzf-lua'.setup {
             -- fzf-lua to not close the fzf window, this way we
             -- can resume the buffers picker on the same window
             -- eliminating an otherwise unaesthetic win "flash"
-            ["ctrl-x"] = {actions.buf_del, actions.resume}
+            ["ctrl-x"] = {
+                actions.buf_del,
+                actions.resume
+            }
         }
     },
     tabs = {
@@ -367,7 +431,10 @@ require'fzf-lua'.setup {
         actions = {
             -- actions inherit from 'actions.buffers' and merge
             ["default"] = actions.buf_switch,
-            ["ctrl-x"] = {actions.buf_del, actions.resume}
+            ["ctrl-x"] = {
+                actions.buf_del,
+                actions.resume
+            }
         },
         fzf_opts = {
             -- hide tabnr
@@ -389,8 +456,12 @@ require'fzf-lua'.setup {
         },
         -- actions inherit from 'actions.buffers' and merge
         actions = {
-            ["default"] = {actions.buf_edit_or_qf},
-            ["alt-q"] = {actions.buf_sel_to_qf}
+            ["default"] = {
+                actions.buf_edit_or_qf
+            },
+            ["alt-q"] = {
+                actions.buf_sel_to_qf
+            }
         }
     },
     blines = {
@@ -406,8 +477,12 @@ require'fzf-lua'.setup {
         },
         -- actions inherit from 'actions.buffers' and merge
         actions = {
-            ["default"] = {actions.buf_edit_or_qf},
-            ["alt-q"] = {actions.buf_sel_to_qf}
+            ["default"] = {
+                actions.buf_edit_or_qf
+            },
+            ["alt-q"] = {
+                actions.buf_sel_to_qf
+            }
         }
     },
     tags = {
@@ -423,7 +498,9 @@ require'fzf-lua'.setup {
         actions = {
             -- actions inherit from 'actions.files' and merge
             -- this action toggles between 'grep' and 'live_grep'
-            ["ctrl-g"] = {actions.grep_lgrep}
+            ["ctrl-g"] = {
+                actions.grep_lgrep
+            }
         },
         no_header = false, -- hide grep|cwd header?
         no_header_i = false -- hide interactive header?
@@ -447,15 +524,23 @@ require'fzf-lua'.setup {
     colorschemes = {
         prompt = 'Colorschemes❯ ',
         live_preview = true, -- apply the colorscheme on preview?
-        actions = {["default"] = actions.colorscheme},
-        winopts = {height = 0.55, width = 0.30},
+        actions = {
+            ["default"] = actions.colorscheme
+        },
+        winopts = {
+            height = 0.55,
+            width = 0.30
+        },
         post_reset_cb = function()
             -- reset statusline highlights after
             -- a live_preview of the colorscheme
             -- require('feline').reset_highlights()
         end
     },
-    quickfix = {file_icons = true, git_icons = true},
+    quickfix = {
+        file_icons = true,
+        git_icons = true
+    },
     lsp = {
         prompt_postfix = '❯ ', -- will be appended to the LSP label
         -- to override use 'prompt' instead
@@ -467,10 +552,22 @@ require'fzf-lua'.setup {
         ui_select = true, -- use 'vim.ui.select' for code actions
         severity = "hint",
         icons = {
-            ["Error"] = {icon = "", color = "red"}, -- error
-            ["Warning"] = {icon = "", color = "yellow"}, -- warning
-            ["Information"] = {icon = "", color = "blue"}, -- info
-            ["Hint"] = {icon = "", color = "magenta"} -- hint
+            ["Error"] = {
+                icon = "",
+                color = "red"
+            }, -- error
+            ["Warning"] = {
+                icon = "",
+                color = "yellow"
+            }, -- warning
+            ["Information"] = {
+                icon = "",
+                color = "blue"
+            }, -- info
+            ["Hint"] = {
+                icon = "",
+                color = "magenta"
+            } -- hint
         }
     },
     -- uncomment to disable the previewer
@@ -490,18 +587,28 @@ require'fzf-lua'.setup {
     -- padding can help kitty term users with
     -- double-width icon rendering
     file_icon_padding = '',
-    file_icon_colors = {["lua"] = "blue"}
+    file_icon_colors = {
+        ["lua"] = "blue"
+    }
     -- uncomment if your terminal/font does not support unicode character
     -- 'EN SPACE' (U+2002), the below sets it to 'NBSP' (U+00A0) instead
     -- nbsp = '\xc2\xa0',
 }
 
 local map = vim.api.nvim_set_keymap
-map('n', '<C-p>', "<cmd>lua require('fzf-lua').files()<CR>",
-    {noremap = true, silent = true})
-map('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>",
-    {noremap = true, silent = true})
-map('n', "<leader>r", "<cmd>lua require('fzf-lua').live_grep()<CR>",
-    {noremap = true, silent = true})
-map('n', "<leader>rw", "<cmd>lua require('fzf-lua').grep_cword()<CR>",
-    {noremap = true, silent = true})
+map('n', '<C-p>', "<cmd>lua require('fzf-lua').files()<CR>", {
+    noremap = true,
+    silent = true
+})
+map('n', '<leader>b', "<cmd>lua require('fzf-lua').buffers()<CR>", {
+    noremap = true,
+    silent = true
+})
+map('n', "<leader>r", "<cmd>lua require('fzf-lua').live_grep()<CR>", {
+    noremap = true,
+    silent = true
+})
+map('n', "<leader>rw", "<cmd>lua require('fzf-lua').grep_cword()<CR>", {
+    noremap = true,
+    silent = true
+})

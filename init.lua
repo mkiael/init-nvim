@@ -6,7 +6,9 @@ local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
-        'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
+        'git',
+        'clone',
+        'https://github.com/wbthomason/packer.nvim',
         install_path
     })
     execute 'packadd packer.nvim'
@@ -26,12 +28,12 @@ require('packer').startup {
         use 'kyazdani42/nvim-web-devicons'
 
         use {
-           "lukas-reineke/indent-blankline.nvim",
-           config = [[ require('config/indent-blankline') ]]
+            "lukas-reineke/indent-blankline.nvim",
+            config = [[ require('config/indent-blankline') ]]
         }
 
         use {
-           'ray-x/lsp_signature.nvim',
+            'ray-x/lsp_signature.nvim',
             config = [[ require('config/signature') ]]
         }
 
@@ -57,7 +59,10 @@ require('packer').startup {
             config = [[ require('config/treesitter') ]]
         }
 
-        use { 'junegunn/fzf', run = './install --bin', }
+        use {
+            'junegunn/fzf',
+            run = './install --bin'
+        }
 
         use {
             'ibhagwan/fzf-lua',
@@ -72,7 +77,10 @@ require('packer').startup {
         use {
             'hrsh7th/nvim-cmp',
             requires = {
-                'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-cmdline'
+                'hrsh7th/cmp-nvim-lsp',
+                'hrsh7th/cmp-path',
+                'hrsh7th/cmp-buffer',
+                'hrsh7th/cmp-cmdline'
             },
             config = [[ require('config/cmp') ]]
         }
@@ -85,24 +93,24 @@ require('packer').startup {
         }
 
         use {
-           "glepnir/lspsaga.nvim",
-           branch = "main",
-           config = [[ require('config/lspsaga') ]]
+            "glepnir/lspsaga.nvim",
+            branch = "main",
+            config = [[ require('config/lspsaga') ]]
         }
 
         use {
-           'sakhnik/nvim-gdb',
+            'sakhnik/nvim-gdb',
             config = [[ require('config/gdb') ]]
         }
 
         use {
-           'tveskag/nvim-blame-line',
-           config = [[ require('config/blame-line') ]]
+            'tveskag/nvim-blame-line',
+            config = [[ require('config/blame-line') ]]
         }
 
         use {
-           'numToStr/Comment.nvim',
-           config = [[ require('config/comment') ]]
+            'numToStr/Comment.nvim',
+            config = [[ require('config/comment') ]]
         }
 
         use 'tpope/vim-fugitive'
@@ -114,4 +122,4 @@ require('packer').startup {
     }
 }
 
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd [[colorscheme kanagawa]]
