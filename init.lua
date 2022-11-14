@@ -26,6 +26,11 @@ require('packer').startup {
         use 'kyazdani42/nvim-web-devicons'
 
         use {
+           "lukas-reineke/indent-blankline.nvim",
+           config = [[ require('config/indent-blankline') ]]
+        }
+
+        use {
            'ray-x/lsp_signature.nvim',
             config = [[ require('config/signature') ]]
         }
