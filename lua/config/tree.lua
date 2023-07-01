@@ -17,7 +17,8 @@ require'nvim-tree'.setup({
         adaptive_size = true
     },
     renderer = {
-        group_empty = true
+        group_empty = true,
+        symlink_destination = false,
     },
     filters = {
         dotfiles = true
