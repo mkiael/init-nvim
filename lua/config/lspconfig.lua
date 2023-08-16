@@ -48,10 +48,15 @@ if vim.fn.executable('clangd') > 0 then
         capabilities = capabilities,
         cmd = {
             "clangd",
+            "--query-driver=**",
             "--background-index=true",
             "--clang-tidy=true",
             "--completion-style=detailed",
             "--all-scopes-completion=true"
+        },
+        filetypes = {
+           "c",
+           "cpp"
         }
     }
 end
