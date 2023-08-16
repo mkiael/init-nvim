@@ -93,12 +93,6 @@ require('packer').startup {
         }
 
         use {
-            "glepnir/lspsaga.nvim",
-            branch = "main",
-            config = [[ require('config/lspsaga') ]]
-        }
-
-        use {
             'sakhnik/nvim-gdb',
             config = [[ require('config/gdb') ]]
         }
